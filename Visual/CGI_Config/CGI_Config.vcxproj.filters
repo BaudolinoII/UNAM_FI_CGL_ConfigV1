@@ -26,13 +26,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main_P1.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Shader.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main_PR2.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
