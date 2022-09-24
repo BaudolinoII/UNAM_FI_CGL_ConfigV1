@@ -1,3 +1,4 @@
 ﻿  Main.cpp
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Circunferencias\Circunferencias\Main.cpp(91,15): warning C4101: 'radio': variable local sin referencia
-  Circunferencias.vcxproj -> C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Circunferencias\Debug\Circunferencias.exe
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Circunferencias\Circunferencias\Main.cpp(113,28): warning C4244: 'argumento': conversión de 'double' a 'const float'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Circunferencias\Circunferencias\Main.cpp(114,39): warning C4244: 'argumento': conversión de 'double' a 'const float'; posible pérdida de datos
+  Circunferencias.vcxproj -> C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Circunferencias\Debug\Circunferencias.exe
