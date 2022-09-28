@@ -1,179 +1,141 @@
 #include<iostream>
-#include<ctgmath>
 #include<string>
+//#define GLEW_STATIC
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+// Shaders
+#include "Shader.h"
+#include "Drawer.h"
 
-const unsigned int x10(const unsigned int n) {
-	unsigned int p = 1, i = 0;
-	for (; i < n; i++)
-		p *= 10;
-	return p;
-}
-const int toInt(const std::string args) {
-	int n = 0;
-	unsigned int i = (args[0] == '-' ? 1 : 0);
-	for (; args[i] != '\0'; i++)
-		n += x10(args.length() - i - 1) * (args[i] - 48);
-	n *= (args[0] == '-' ? -1 : 1);
-	return n;
-}
-const int complement(const float r) {
-	float rp = (r > 0 ? r : r * -1);
-	while (rp >= 1.0f)
-		rp--;
-	if (rp >= 0.0f && rp < 0.5f)
-		return (int)r;
-	return (int)(r + (r > 0 ? 1 : -1));
-}
-const int absolute(const int n) {
-	return (n > 0 ? n : n * -1);
-}
-const int aprox(const int destiny, const int position) {
-	if (destiny == position)
-		return position;
-	if (destiny > position)
-		return position + 1;
-	return position - 1;
-}
+void Inputs(GLFWwindow* window);
+const GLint WIDTH = 1200, HEIGHT = 800;
 
-typedef struct vector {
-public:
-	int x = 0, y = 0;
-	vector(std::string args) {
-		unsigned int i = 0;
-		for(; args[i] != '\0' ; i++)
-			if (args[i] == ',') {
-				x = toInt(args.substr(0, i));
-				y = toInt(args.substr(i + 1, args.length() - i));
-			}
-	}
-	vector(const int x, const int y) {
-		this->x = x;
-		this->y = y;
-	}
-	void printCoords() {
-		std::cout << "X = " << x << "\tY = " << y << std::endl;
-	}
-} Vector;
-typedef struct node {
-	Vector* vec = nullptr;
-	struct node* next = nullptr;
-	node(const int x, const int y, struct node* next) {
-		vec = new Vector(x, y);
-		this->next = next;
-	}
-} Nodo;
-typedef struct stack {
-	unsigned int size = 0;
-	Nodo* top = nullptr;
-	int push(const int x, const int y) {
-		Nodo* it = top;
-		while (it != nullptr)
-			if (it->vec->x == x && it->vec->y == y) 
-				return 1;
-			else
-				it = it->next;
-		Nodo* nuevo = new Nodo(x, y, top);
-		top = nuevo;
-		size++;
-		return 0;
-	}
-	void printStack() {
-		Nodo* it = top;
-		while (it != nullptr) {
-			it->vec->printCoords();
-			it = it->next;
-		}
-		std::cout << "tamanio de pila: " << size << std::endl;
-	}
-	float* getArrayPoints(const float adjust = 1.0f) {
-		float* arrayPoints = new float[size * 3];
-		Nodo* it = top;
-		for (unsigned int i = 0; i < size; i++) {
-			arrayPoints[3*i] = (float)(it->vec->x) * adjust;
-			arrayPoints[3*i + 1] = (float)(it->vec->y) * adjust;
-			arrayPoints[3*i + 2] = 0.0f;
-			it = it->next;
-		}
-		return arrayPoints;
-	}
-	unsigned int* getIndexArray(){
-		unsigned int* index = new unsigned int[2 * (size - 1)];
-		for (unsigned int i = 0; i < size - 1; i++) {
-			index[2 * i] = 0;
-			index[2 * i + 1] = i + 1;
-		}
-		return index;
-	}
-} Stack;
-
-Stack setCircle(const int radio, Vector centro){
-	Stack pila;
-	int before = centro.y, past = centro.y, current = 0, oposite = 0, otherside = radio + centro.x;
-	for (int i = (centro.x - radio); i <= (radio + centro.x); i++) {
-		current = complement(sqrt(radio * radio - (i - centro.x) * (i - centro.x))) + centro.y;
-		oposite = centro.y - complement(sqrt(radio * radio - (i - centro.x) * (i - centro.x)));
-		while(absolute(current - before) != 0){
-			//std::cout << "[" << i - 1 << "," << before << "]" << std::endl;
-			pila.push(i - 1 , before);
-			//std::cout << "[" << otherside + 1 << "," << past << "]" << std::endl;
-			pila.push(otherside + 1, past);
-			before = aprox(current, before);
-			past = aprox(oposite, past);
-		}
-		//std::cout << "[" << i << "," << current << "]" << std::endl;
-		pila.push(i, current);
-		//std::cout << "[" << otherside << "," << oposite << "]" << std::endl;
-		pila.push(otherside, oposite);
-		otherside--;
-	}
-	pila.push(centro.x, centro.y);
-	//pila.printStack();
-	return pila;
-}
+//For Keyboard
+float	movX = 0.0f,
+movY = 0.0f,
+movZ = -5.0f,
+rot = 0.0f;
 
 int main() {
-	std::string args = "";
-	unsigned int radio = 5;
-	/*std::cout << "Inserte Radio Circunferencia" << std::endl;
-	std::cin >> args;
-	radio = toInt(args);
-	std::cout << "Inserte Posicion en X,Y" << std::endl;
-	std::cin >> args;
-	Vector centro(args);*/
-	/*std::cout << complement(-9.5f) << std::endl;
-	std::cout << complement(-9.0f);*/
-	Vector centro(-2, 1);
-	Stack pila = setCircle(radio, centro);
-	float* arr = pila.getArrayPoints();
-	std::cout << "Arreglo de Vertices:\n(";
-	for (unsigned int i = 0; i < pila.size * 3; i++) {
-		std::cout << arr[i];
-		if ((i + 1) % 3 == 0)
-			std::cout << ")\t" << (i - 2) / 3 << "\n(";
-		else
-			std::cout << " , ";
+	glfwInit();
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Practica 1", nullptr, nullptr);
+	int screenWidth, screenHeight;
+
+	glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
+
+	//Verificación de errores de creacion  ventana
+	if (nullptr == window){
+		std::cout << "Failed to create GLFW window" << std::endl;
+		glfwTerminate();
+		return EXIT_FAILURE;
 	}
-	unsigned int* idx = pila.getIndexArray();
-	std::cout << "\nArreglo de Indices:\n";
-	for (unsigned int i = 0; i < (pila.size - 1)* 2; i++) {
-		std::cout << idx[i];
-		std::cout << ((i + 1) % 2 == 0 ? "\n" : " , ");
+
+	glfwMakeContextCurrent(window);
+	glewExperimental = GL_TRUE;
+
+	if (GLEW_OK != glewInit()) {
+		std::cout << "Failed to initialise GLEW" << std::endl;
+		return EXIT_FAILURE;
 	}
-	//pila.push(1, 2);
-	//pila.push(1, 2);
-	//pila.push(1, 2);
-	//pila.push(2, 4);
-	//pila.push(3, 8);
-	//pila.push(4, 16);
-	//pila.printStack();
-	//float* arr = pila.getArrayPoints(1.5f);
-	//for (int i = 0; i < 4; i++)
-	//	std::cout << " [" << arr[i] << "] ";
-	
-	//for (int i = 0; i < 24; i++) {
-	//	std::cout << " [" << arr[i] << "] ";
-	//	if (i % 2 == 1)
-	//		std::cout << std::endl;
-	//}
-	return 0;
+
+	glViewport(0, 0, screenWidth, screenHeight);
+	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	Shader ourShader("Shader/core.vs", "Shader/core.frag");
+	std::string args;
+	std::cout << "Programa Listo para Iniciar: " << std::endl << "Inserte el tamanio del Radio: ";
+	std::cin >> args;
+	unsigned int radio = absolute(toInt(args));
+	std::cout << std::endl << "Coloque el centro en el siguiente formato x,y" << std::endl;
+	std::cin >> args;
+	Vector centro(args);
+	Stack data = setCircle(radio, centro);
+	float* vertices = data.getArrayPoints(3.0f);
+	unsigned int* indices = data.getIndexArray();
+
+	GLuint VBO, VAO;
+	glGenVertexArrays(1, &VAO);
+	glGenBuffers(1, &VBO);
+	glBindVertexArray(VAO);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (GLfloat)screenWidth / (GLfloat)screenHeight, 0.1f, 100.0f);
+	glm::vec3 color = glm::vec3(0.0f, 0.0f, 1.0f);
+
+	while (!glfwWindowShouldClose(window)) {//////////////////////////////////////MAIN LOOP////////////////////////////////////////
+		Inputs(window);
+		glfwPollEvents();
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		ourShader.Use();
+		glPointSize(10);
+		glm::mat4 model = glm::mat4(1);
+		glm::mat4 view = glm::translate(glm::mat4(1), glm::vec3(movX, movY, movZ));
+		view = glm::rotate(view, glm::radians(rot), glm::vec3(0.0f, 1.0f, 0.0f));
+
+		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
+		GLint viewLoc = glGetUniformLocation(ourShader.Program, "view");
+		GLint projecLoc = glGetUniformLocation(ourShader.Program, "projection");
+		GLint uniformColor = glGetUniformLocation(ourShader.Program, "color");
+
+		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
+		glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+
+		glBindVertexArray(VAO);
+
+		color = glm::vec3(1.0f, 0.0f, 1.0f);
+		glUniform3fv(uniformColor, 1, glm::value_ptr(color));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glDrawArrays(GL_POINTS, 1, data.size * 3 - 1);
+
+		glBindVertexArray(0);
+		// Swap the screen buffers
+		glfwSwapBuffers(window);
+	}
+	glDeleteVertexArrays(1, &VAO);
+	glDeleteBuffers(1, &VBO);
+
+
+	glfwTerminate();
+	return EXIT_SUCCESS;
+}
+
+
+void Inputs(GLFWwindow* window) {
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		movX += 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		movX -= 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		movY += 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		movY -= 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		movZ -= 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		movZ += 0.08f;
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+		rot += 0.28f;
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		rot -= 0.28f;
+
 }
