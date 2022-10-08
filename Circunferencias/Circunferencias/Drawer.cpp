@@ -14,7 +14,7 @@ const int toInt(const std::string args) {
 	n *= (args[0] == '-' ? -1 : 1);
 	return n;
 }
-const int complement(const float r) {
+const int complement(double r) {
 	float rp = (r > 0 ? r : r * -1);
 	while (rp >= 1.0f)
 		rp--;

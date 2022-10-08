@@ -7,7 +7,7 @@
 
 const unsigned int x10(const unsigned int n);
 const int toInt(const std::string args);
-const int complement(const float r);
+const int complement(double r);
 const int absolute(const int n);
 const int aprox(const int destiny, const int position);
 
