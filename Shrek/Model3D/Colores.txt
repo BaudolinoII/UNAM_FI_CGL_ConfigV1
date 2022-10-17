@@ -1,0 +1,15 @@
+Colores
+
+0.68f,0.85f,0.20f,	//Verde Base
+0.83f,0.98f,0.41f,	//Verde Claro
+0.33f,0.45f,0.01f,	//Verde Oscuro
+
+0.54f,0.36f,0.07f,	//Café Base
+0.83f,0.65f,0.37f,	//Café Claro
+0.32f,0.20f,0.01f,	//Café Oscuro
+
+0.56f,0.56f,0.56f,	//Gris
+0.90f,0.90f,0.90f,	//Casi Blanco
+0.01f,0.01f,0.01f,	//Casi Negro
+
+0.96f,0.98f,0.84f,	//Papel
