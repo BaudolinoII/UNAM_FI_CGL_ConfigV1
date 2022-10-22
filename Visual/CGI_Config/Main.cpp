@@ -22,15 +22,16 @@ void KeyCallback( GLFWwindow *window, int key, int scancode, int action, int mod
 void MouseCallback( GLFWwindow *window, double xPos, double yPos );
 void DoMovement( );
 
-
 // Camera
-Camera camera( glm::vec3( 0.0f, 0.0f, 3.0f ) );
+Camera camera( glm::vec3( 0.0f, 0.0f, 10.0f ) );
 bool keys[1024];
 GLfloat lastX = 400, lastY = 300;
 bool firstMouse = true;
 
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
+
+
 
 int main( ){
     // Init GLFW
@@ -78,10 +79,11 @@ int main( ){
     // Setup and compile our shaders
     Shader shader( "Shader/modelLoading.vs", "Shader/modelLoading.frag" );
     // Load models
+    Model cuerpo_pez((char*)"Models/Pez/Cuerpo_Pez.obj");
+    Model cola_pez((char*)"Models/Pez/Cola_Pez.obj");
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
-  
-
+    float rotCola = 0.0f, inc_rot = 0.0f;
     // Game loop
     while (!glfwWindowShouldClose(window)){
         // Set frame time
@@ -104,9 +106,19 @@ int main( ){
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
-        glm::mat4 model(1);
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        inc_rot = (rotCola < 60.0f ?  0.05f : -0.05f);
+        inc_rot = (rotCola > -60.0f ? -0.05f : 0.05f);
+        rotCola += inc_rot;
 
+        glm::mat4 model(1);
+        model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cola_pez.Draw(shader);
+
+        model = glm::mat4(1);
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cuerpo_pez.Draw(shader);
+        
         // Swap the buffers
         glfwSwapBuffers( window );
     }

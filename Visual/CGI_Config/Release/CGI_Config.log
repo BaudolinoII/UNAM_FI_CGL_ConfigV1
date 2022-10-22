@@ -1,15 +1,15 @@
 ﻿  Main.cpp
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(105,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(192,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(193,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(197,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(198,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(200,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(201,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(90,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(167,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(168,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(172,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(173,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(175,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Main.cpp(176,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  2 of 243 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  1 of 614 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
