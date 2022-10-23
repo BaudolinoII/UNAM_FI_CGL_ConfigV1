@@ -83,7 +83,8 @@ int main( ){
     Model cola_pez((char*)"Models/Pez/Cola_Pez.obj");
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
-    float rotCola = 0.0f, inc_rot = 0.0f;
+    float rotCola = 0.0f;
+    bool flag = true;
     // Game loop
     while (!glfwWindowShouldClose(window)){
         // Set frame time
@@ -106,9 +107,11 @@ int main( ){
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
-        inc_rot = (rotCola < 60.0f ?  0.05f : -0.05f);
-        inc_rot = (rotCola > -60.0f ? -0.05f : 0.05f);
-        rotCola += inc_rot;
+        if (rotCola < 60.0f && flag) rotCola += 0.04f;
+        else flag = false;
+        if (rotCola > -60.0f && !flag) rotCola -= 0.04f;
+        else flag = true;
+        
 
         glm::mat4 model(1);
         model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0f));
