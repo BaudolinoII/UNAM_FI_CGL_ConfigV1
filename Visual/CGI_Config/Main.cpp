@@ -79,12 +79,9 @@ int main( ){
     // Setup and compile our shaders
     Shader shader( "Shader/modelLoading.vs", "Shader/modelLoading.frag" );
     // Load models
-    Model cuerpo_pez((char*)"Models/Pez/Cuerpo_Pez.obj");
-    Model cola_pez((char*)"Models/Pez/Cola_Pez.obj");
+    Model banio((char*)"Models/Shrek/Bano.obj");
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
-    
-    float rotCola = 0.0f;
-    bool flag = true;
+
     // Game loop
     while (!glfwWindowShouldClose(window)){
         // Set frame time
@@ -107,20 +104,9 @@ int main( ){
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
-        if (rotCola < 60.0f && flag) rotCola += 0.04f;
-        else flag = false;
-        if (rotCola > -60.0f && !flag) rotCola -= 0.04f;
-        else flag = true;
-        
-
         glm::mat4 model(1);
-        model = glm::rotate(model, glm::radians(rotCola), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        cola_pez.Draw(shader);
-
-        model = glm::mat4(1);
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        cuerpo_pez.Draw(shader);
+        banio.Draw(shader);
         
         // Swap the buffers
         glfwSwapBuffers( window );
