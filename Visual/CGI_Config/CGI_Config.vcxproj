@@ -153,12 +153,12 @@
   <ItemGroup>
     <None Include="..\Shader\core.frag" />
     <None Include="..\Shader\core.vs" />
-    <None Include="Shader\lamp.frag" />
-    <None Include="Shader\lamp.vs" />
-    <None Include="Shader\lighting.frag" />
-    <None Include="Shader\lighting.vs" />
-    <None Include="Shader\modelLoading.frag" />
-    <None Include="Shader\modelLoading.vs" />
+    <None Include="Shaders\lamp.frag" />
+    <None Include="Shaders\lamp.vs" />
+    <None Include="Shaders\lighting.frag" />
+    <None Include="Shaders\lighting.vs" />
+    <None Include="Shaders\modelLoading.frag" />
+    <None Include="Shaders\modelLoading.vs" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -168,7 +168,7 @@
     <ClInclude Include="stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="iluminacion2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

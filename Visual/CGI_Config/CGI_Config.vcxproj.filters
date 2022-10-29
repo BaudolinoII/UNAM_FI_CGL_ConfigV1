@@ -24,22 +24,22 @@
     <None Include="..\Shader\core.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\lamp.frag">
+    <None Include="Shaders\lamp.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\lamp.vs">
+    <None Include="Shaders\lamp.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\lighting.frag">
+    <None Include="Shaders\lighting.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\lighting.vs">
+    <None Include="Shaders\lighting.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\modelLoading.frag">
+    <None Include="Shaders\modelLoading.frag">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
-    <None Include="Shader\modelLoading.vs">
+    <None Include="Shaders\modelLoading.vs">
       <Filter>Archivos de origen\Shaders</Filter>
     </None>
   </ItemGroup>
@@ -61,7 +61,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="iluminacion2.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
