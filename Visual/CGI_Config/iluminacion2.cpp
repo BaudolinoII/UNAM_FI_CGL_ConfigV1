@@ -104,8 +104,7 @@ glm::vec3 Light1 = glm::vec3(0);
 GLfloat deltaTime = 0.0f;	// Time between current frame and last frame
 GLfloat lastFrame = 0.0f;  	// Time of last frame
 
-int main()
-{
+int main(){
 	// Init GLFW
 	glfwInit();
 	// Set all the required options for GLFW
@@ -118,8 +117,7 @@ int main()
 	// Create a GLFWwindow object that we can use for GLFW's functions
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Iluminacion 2", nullptr, nullptr);
 
-	if (nullptr == window)
-	{
+	if (nullptr == window){
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
 
@@ -140,16 +138,13 @@ int main()
 	// Set this to true so GLEW knows to use a modern approach to retrieving function pointers and extensions
 	glewExperimental = GL_TRUE;
 	// Initialize GLEW to setup the OpenGL Function pointers
-	if (GLEW_OK != glewInit())
-	{
+	if (GLEW_OK != glewInit()){
 		std::cout << "Failed to initialize GLEW" << std::endl;
 		return EXIT_FAILURE;
 	}
 
 	// Define the viewport dimensions
 	glViewport(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-
-
 
 	Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
 	Shader lampShader("Shaders/lamp.vs", "Shaders/lamp.frag");
@@ -181,8 +176,7 @@ int main()
 	glm::mat4 projection = glm::perspective(camera.GetZoom(), (GLfloat)SCREEN_WIDTH / (GLfloat)SCREEN_HEIGHT, 0.1f, 100.0f);
 
 	// Game loop
-	while (!glfwWindowShouldClose(window))
-	{
+	while (!glfwWindowShouldClose(window)){
 
 		// Calculate deltatime of current frame
 		GLfloat currentFrame = glfwGetTime();
@@ -212,7 +206,7 @@ int main()
 
 
 		// Directional light
-		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.2f, -1.0f, -0.3f);
+		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.direction"), -0.4f, -0.0f, -0.4f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.ambient"),0.0f,0.0f,0.0f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.diffuse"), 0.0f, 0.0f, 0.0f);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "dirLight.specular"),0.0f, 0.0f, 0.0f);
@@ -230,8 +224,8 @@ int main()
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[0].diffuse"), lightColor.x,lightColor.y,lightColor.z);
 		glUniform3f(glGetUniformLocation(lightingShader.Program, "pointLights[0].specular"), 1.0f, 1.0f, 0.0f);
 		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[0].constant"), 1.0f);
-		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[0].linear"), 0.045f);
-		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[0].quadratic"),0.075f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[0].linear"), 0.0045f);
+		glUniform1f(glGetUniformLocation(lightingShader.Program, "pointLights[0].quadratic"),0.0075f);
 
 
 
@@ -324,8 +318,7 @@ int main()
 		model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
-		for (GLuint i = 0; i < 4; i++)
-		{
+		for (GLuint i = 0; i < 4; i++){
 			model = glm::mat4(1);
 			model = glm::translate(model, pointLightPositions[i]);
 			model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
@@ -345,101 +338,71 @@ int main()
 	// Terminate GLFW, clearing any resources allocated by GLFW.
 	glfwTerminate();
 
-
-
 	return 0;
 }
 
 // Moves/alters the camera positions based on user input
-void DoMovement()
-{
-
+void DoMovement(){
 	// Camera controls
-	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP])
-	{
+	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP]){
 		camera.ProcessKeyboard(FORWARD, deltaTime);
-
 	}
 
-	if (keys[GLFW_KEY_S] || keys[GLFW_KEY_DOWN])
-	{
+	if (keys[GLFW_KEY_S] || keys[GLFW_KEY_DOWN]){
 		camera.ProcessKeyboard(BACKWARD, deltaTime);
-
-
 	}
 
-	if (keys[GLFW_KEY_A] || keys[GLFW_KEY_LEFT])
-	{
+	if (keys[GLFW_KEY_A] || keys[GLFW_KEY_LEFT]){
 		camera.ProcessKeyboard(LEFT, deltaTime);
-
-
 	}
 
-	if (keys[GLFW_KEY_D] || keys[GLFW_KEY_RIGHT])
-	{
+	if (keys[GLFW_KEY_D] || keys[GLFW_KEY_RIGHT]){
 		camera.ProcessKeyboard(RIGHT, deltaTime);
-
-
 	}
 
-	if (keys[GLFW_KEY_T])
-	{
+	if (keys[GLFW_KEY_T]){
 		pointLightPositions[0].x += 0.01f;
 	}
-	if (keys[GLFW_KEY_G])
-	{
+	if (keys[GLFW_KEY_G]){
 		pointLightPositions[0].x -= 0.01f;
 	}
 
-	if (keys[GLFW_KEY_Y])
-	{
+	if (keys[GLFW_KEY_Y]){
 		pointLightPositions[0].y += 0.01f;
 	}
 
-	if (keys[GLFW_KEY_H])
-	{
+	if (keys[GLFW_KEY_H]){
 		pointLightPositions[0].y -= 0.01f;
 	}
-	if (keys[GLFW_KEY_U])
-	{
+	if (keys[GLFW_KEY_U]){
 		pointLightPositions[0].z -= 0.1f;
 	}
-	if (keys[GLFW_KEY_J])
-	{
+	if (keys[GLFW_KEY_J]){
 		pointLightPositions[0].z += 0.01f;
 	}
 	
 }
 
 // Is called whenever a key is pressed/released via GLFW
-void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode)
-{
-	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
-	{
+void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode){
+	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action){
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 
-	if (key >= 0 && key < 1024)
-	{
+	if (key >= 0 && key < 1024){
 		if (action == GLFW_PRESS)
 		{
 			keys[key] = true;
-		}
-		else if (action == GLFW_RELEASE)
-		{
+		}else if (action == GLFW_RELEASE){
 			keys[key] = false;
 		}
 	}
 
-	if (keys[GLFW_KEY_SPACE])
-	{
+	if (keys[GLFW_KEY_SPACE]){
 		active = !active;
-		if (active)
-		{
+		if (active){
 			Light1 = glm::vec3(1.0f, 1.0f, 0.0f);
-		}
-		else
-		{
+		}else{
 			Light1 = glm::vec3(0);//Cuado es solo un valor en los 3 vectores pueden dejar solo una componente
 		}
 	}
@@ -447,8 +410,7 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
 {
-	if (firstMouse)
-	{
+	if (firstMouse){
 		lastX = xPos;
 		lastY = yPos;
 		firstMouse = false;
