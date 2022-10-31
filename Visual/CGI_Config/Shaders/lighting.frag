@@ -81,7 +81,7 @@ void main( ){
     result += CalcSpotLight( spotLight, norm, FragPos, viewDir );
  	
     color = colorAlpha * vec4( result,texture(material.diffuse, TexCoords).rgb );
-	  if(color.a < 0.1 && activeAlpha > 0.01)
+	  if(color.a < 0.1 && activeAlpha > 0.1)
         discard;
 
 }
