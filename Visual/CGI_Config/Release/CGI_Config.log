@@ -1,17 +1,19 @@
-﻿  Main.cpp
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(91,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(170,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(171,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(175,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(176,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(178,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Main.cpp(179,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+﻿  iluminacion2.cpp
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(184,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(218,16): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(219,19): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(264,90): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(445,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(446,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(450,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(451,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(453,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(454,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
 soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
-  1 of 614 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 617 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Generación de código finalizada
 soil2-debug.lib(etc1_utils.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(etc1_utils.obj)' o en 'D:\Documentos\Semestre2023\CGI\Proyectos\Visual\Release\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
 soil2-debug.lib(image_DXT.obj) : warning LNK4099: no se encontró PDB 'soil2-debug.pdb' con 'soil2-debug.lib(image_DXT.obj)' o en 'D:\Documentos\Semestre2023\CGI\Proyectos\Visual\Release\soil2-debug.pdb'; se vinculará el objeto sin tener en cuenta información de depuración
