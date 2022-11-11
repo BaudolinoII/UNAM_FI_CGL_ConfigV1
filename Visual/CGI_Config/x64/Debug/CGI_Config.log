@@ -1,27 +1,14 @@
 ﻿  iluminacion2.cpp
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\Mesh.h(95,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(182,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(217,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(218,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(219,20): warning C4244: '=': conversión de 'double' a 'T'; posible pérdida de datos
-          with
-          [
-              T=float
-          ]
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(414,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(415,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(419,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(420,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(422,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\CGI_Config\iluminacion2.cpp(423,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\Mesh.h(95,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(183,24): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(217,16): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(218,19): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(377,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(378,11): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(382,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(383,18): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(385,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\CGI_Config\iluminacion2.cpp(386,10): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
 iluminacion2.obj : error LNK2019: símbolo externo __imp_glewInit sin resolver al que se hace referencia en la función main
 iluminacion2.obj : error LNK2019: símbolo externo glfwInit sin resolver al que se hace referencia en la función main
 iluminacion2.obj : error LNK2019: símbolo externo glfwTerminate sin resolver al que se hace referencia en la función main
@@ -71,8 +58,8 @@ iluminacion2.obj : error LNK2019: símbolo externo __imp___glewGenerateMipmap si
 iluminacion2.obj : error LNK2019: símbolo externo __imp___glewBindVertexArray sin resolver al que se hace referencia en la función "public: void __cdecl Mesh::Draw(class Shader)" (?Draw@Mesh@@QEAAXVShader@@@Z)
 iluminacion2.obj : error LNK2019: símbolo externo __imp___glewGenVertexArrays sin resolver al que se hace referencia en la función "private: void __cdecl Mesh::setupMesh(void)" (?setupMesh@Mesh@@AEAAXXZ)
 iluminacion2.obj : error LNK2019: símbolo externo __imp_glewExperimental sin resolver al que se hace referencia en la función main
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\\External Libraries\SOIL2\lib\soil2-debug.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\\External Libraries\assimp\lib\assimp-vc140-mt.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\\External Libraries\GLEW\lib\Release\Win32\glew32.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\\External Libraries\GLFW\lib-vc2015\glfw3.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
-D:\Documentos\Semestre2023\CGI\Proyectos\Visual\x64\Debug\CGI_Config.exe : fatal error LNK1120: 49 externos sin resolver
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\\External Libraries\SOIL2\lib\soil2-debug.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\\External Libraries\assimp\lib\assimp-vc140-mt.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\\External Libraries\GLEW\lib\Release\Win32\glew32.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\\External Libraries\GLFW\lib-vc2015\glfw3.lib : warning LNK4272: el tipo de máquina de biblioteca 'x86' está en conflicto con el tipo de máquina de destino 'x64'
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Visual\x64\Debug\CGI_Config.exe : fatal error LNK1120: 49 externos sin resolver

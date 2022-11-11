@@ -2,19 +2,13 @@
 #include"Donut.h"
 
 int main() {
-	pila Pila;
-	Pila.store(0.0f, 0.0f, 1.0f);
-	Pila.store(0.0f, 1.0f, 1.0f);
-	Pila.store(1.0f, 0.0f, 1.0f);
-	Pila.store(1.0f, 1.0f, 1.0f);
-	Pila.store(0.0f, 0.0f);
-	Pila.store(0.0f, 0.5f);
-	Pila.store(0.5f, 0.0f);
-	Pila.store(0.5f, 0.5f);
+	pila* Pila = bakeVertexDonut(15.0f, 15.0f, 1, 1);
+	/*for(int i = 0; i < 25; i++)
+		Pila.store(0.0f, 0.0f, 0.0f);
+	addUVIndex(&Pila, 4, 4);
+	addIndexArray(&Pila, 1, 1);
 	Pila.printStack();
-	float* arreglo = Pila.getArray();
-	for (unsigned int i = 0; i < Pila.sizeV * 5; i++)
-		std::cout << arreglo[i] << (i % 5 == 4 ? "\n":" , ");
-	
+	float* arreglo = Pila.getArrayVertex();*/
+	Pila->printStack();
 	return 0;
 }

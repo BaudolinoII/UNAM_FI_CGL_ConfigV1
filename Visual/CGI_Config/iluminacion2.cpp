@@ -287,7 +287,8 @@ int main(){
 		model = glm::mat4(1);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		Piso.Draw(lightingShader);
-
+		Ataud.Draw(lightingShader);
+		Princesa.Draw(lightingShader);
 		model = glm::translate(glm::mat4(1), glm::vec3(0.0f, 0.0f, 0.0f));
 		glEnable(GL_BLEND); //Avtiva la funcionalidad para trabajar el canal alfa
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -298,8 +299,7 @@ int main(){
 		glDisable(GL_BLEND);  //Desactiva el canal alfa 
 		glBindVertexArray(0);
 
-		Ataud.Draw(lightingShader);
-		Princesa.Draw(lightingShader);
+
 	
 
 		// Also draw the lamp object, again binding the appropriate shader
