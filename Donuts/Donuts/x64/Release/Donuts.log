@@ -1,0 +1,9 @@
+﻿  Donut.cpp
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Donuts\Donuts\Donut.cpp(31,21): warning C4018: '<=': no coinciden signed/unsigned
+  Main.cpp
+  Previous IPDB not found, fall back to full compilation.
+  Generando código
+C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Donuts\Donuts\Donut.cpp(42): warning C4172: devolución de dirección de la variable local o temporal: stack
+  All 26 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  Donuts.vcxproj -> C:\Users\espin\OneDrive\Documentos\Semestre_2023\CGIHC\Proyectos\Donuts\x64\Release\Donuts.exe
